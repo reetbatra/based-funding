@@ -3,7 +3,7 @@ import './global.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics/GoogleAnalytics';
 import OnchainProviders from '@/OnchainProviders';
 import { initAnalytics } from '@/utils/analytics';
-import { inter } from './fonts';
+import { lato } from './fonts';
 import type { Metadata } from 'next';
 
 export const viewport = {
@@ -27,8 +27,8 @@ initAnalytics();
  */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.className}`}>
-      <body className="flex flex-1 flex-col">
+    <html lang="en" className={`${lato.className}`}>
+      <body className={`flex flex-1 flex-col ${lato.className}`}>
         <OnchainProviders>{children}</OnchainProviders>
       </body>
       <GoogleAnalytics />
