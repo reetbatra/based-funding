@@ -12,10 +12,11 @@
   --palette-bg-black: #0a0b0d;
   --palette-bg-soft-black: #141519;
   --palette-bg-white: #fff;
+  --palette-text-black: #000;
 
   /* Build Onchain Apps shared variables */
-  --boat-color-background: var(--palette-bg-black);
-  --boat-color-text: var(--palette-bg-white);
+  --boat-color-background: var(--palette-bg-white);
+  --boat-color-text: var(--palette-text-black);
 
   /* Indicates that the element can be rendered using 
    * the operating system dark color scheme. 

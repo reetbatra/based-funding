@@ -15,8 +15,8 @@ const defaultUrl = deployUrl
   : `http://localhost:${process.env.PORT ?? 3000}`;
 
 export const generateMetadata = ({
-  title = 'Build Onchain Apps',
-  description = 'The easier way to build onchain apps.',
+  title = 'basefunding',
+  description = 'fund or get funded for your education onchain only on basefunding',
   frame = {},
   images,
   url = 'https://github.com/coinbase/build-onchain-apps',
