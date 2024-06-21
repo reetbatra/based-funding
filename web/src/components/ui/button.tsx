@@ -9,12 +9,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'rounded bg-gray-700 text-white px-4 py-2 hover:bg-gray-800 no-underline',
-        blue: 'rounded bg-mainBlue px-4 py-2 text-white hover:bg-opacity-80 active:bg-opacity-60 no-underline',
+        default:
+          'rounded bg-gray-700 text-white px-4 py-2 hover:bg-gray-800 no-underline rounded-xl',
+        blue: 'rounded bg-mainBlue px-4 py-2 text-white hover:bg-opacity-80 active:bg-opacity-60 no-underline rounded-xl',
         black:
-          'rounded bg-mainBlack px-4 py-2 text-white hover:bg-opacity-80 active:bg-opacity-60 no-underline',
+          'rounded bg-mainBlack px-4 py-2 text-white hover:bg-opacity-80 active:bg-opacity-60 no-underline rounded-xl',
         transparent:
-          'rounded px-4 py-2 text-mainBlack hover:bg-gray-200 active:bg-opacity-80 no-underline',
+          'rounded px-4 py-2 text-mainBlack hover:bg-gray-200 active:bg-opacity-80 no-underline rounded-xl',
       },
       size: {
         default: 'h-10 px-4 py-2',
