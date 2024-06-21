@@ -21,6 +21,7 @@ module.exports = {
         mainBlue: '#0E76FD',
         mainGreen: '#DEFFEE',
         mainBlack: '#0B0014',
+        mainGray: '#434343',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
