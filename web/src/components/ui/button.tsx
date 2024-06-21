@@ -17,7 +17,7 @@ const buttonVariants = cva(
         transparent:
           'rounded px-4 py-2 text-mainBlack hover:bg-gray-200 active:bg-opacity-80 no-underline rounded-xl',
         destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-        outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+        outline: 'border-b border-input bg-background hover:bg-accent hover:text-accent-foreground',
         secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
