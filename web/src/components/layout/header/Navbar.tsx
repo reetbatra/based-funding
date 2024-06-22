@@ -13,7 +13,7 @@ export function NavbarTitle() {
         passHref
         className="text-mainColor text-center text-3xl font-extrabold no-underline"
       >
-        basefunding
+        basedfunding
       </Link>
     </div>
   );
