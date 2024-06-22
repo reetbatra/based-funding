@@ -26,15 +26,11 @@ import { useState } from 'react';
 const formSchema = z.object({
   firstname: z.string().min(1),
   lastname: z.string().min(1),
-  university: z.string({
-    required_error: 'Please select a university.',
-  }),
-  programme: z.string().min(1),
+  university: z.string(),
+  programme: z.string(),
   educationLevel: z.enum(['Bachelor', 'Master', 'PhD']),
   budget: z.number().min(0),
-  deadline: z.date({
-    required_error: 'Required.',
-  }),
+  deadline: z.date(),
   location: z.enum([
     'Africa',
     'Antarctica',
@@ -44,7 +40,7 @@ const formSchema = z.object({
     'Australia',
     'South America',
   ]),
-  caseDescription: z.string().min(1),
+  caseDescription: z.string().min(50),
 });
 
 export default function ApplyPage() {
@@ -68,8 +64,6 @@ export default function ApplyPage() {
   const handleUniChange = (value: any) => {
     fetchUniversity(value);
   };
-
-  console.log(universities);
 
   return (
     <>
@@ -179,8 +173,9 @@ export default function ApplyPage() {
                 <FormItem>
                   <FormControl>
                     <Input
-                      placeholder="Goal"
+                      placeholder="Goal Budget (in USDC)"
                       type="number"
+                      min={1}
                       {...field}
                       onChange={(e) => field.onChange(parseFloat(e.target.value))}
                     />
@@ -235,7 +230,7 @@ export default function ApplyPage() {
                 <FormItem>
                   <Select onValueChange={field.onChange}>
                     <FormControl>
-                      <SelectTrigger>{field.value || 'Select a location'}</SelectTrigger>
+                      <SelectTrigger>{field.value || 'Select a Region'}</SelectTrigger>
                     </FormControl>
 
                     <SelectContent>
