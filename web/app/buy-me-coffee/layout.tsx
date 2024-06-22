@@ -3,9 +3,9 @@ import { generateMetadata } from '@/utils/generateMetadata';
 export const metadata = generateMetadata({
   title: 'based funding',
   description:
-    'based funding by powerpuff girls',
+    'fund or get funded for your education onchain only on basedfunding',
   images: 'themes.png',
-  pathname: 'buy-me-coffee',
+  pathname: '/',
 });
 
 export default async function Layout({ children }: { children: React.ReactNode }) {

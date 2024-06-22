@@ -2,9 +2,9 @@ import { generateMetadata } from '@/utils/generateMetadata';
 import HomePage from './home/HomePage';
 
 export const metadata = generateMetadata({
-  title: 'basefunding',
+  title: 'basedfunding',
   description:
-    'fund or get funded for your education onchain only on basefunding',
+    'fund or get funded for your education onchain only on basedfunding',
   images: 'themes.png',
   pathname: '',
 });

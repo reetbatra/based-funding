@@ -16,11 +16,11 @@ export default function HomePage() {
           Join as a <span className="text-mainBlue">Student</span> or Investor
         </p>
         <div className="flex gap-64">
-          <Button asChild variant="blue" className="h-12 w-40 text-xl">
-            <Link href="/create-profile">Apply for $</Link>
+          <Button asChild variant="blue" className="h-full w-full p-4 text-xl">
+            <Link href="/create-profile">Apply for funding</Link>
           </Button>
-          <Button asChild variant="black" className="h-12 w-40 text-xl">
-            <Link href="/projects">Fund $</Link>
+          <Button asChild variant="black" className="h-full w-full p-4 text-xl">
+            <Link href="/projects">Fund a student</Link>
           </Button>
         </div>
       </main>
