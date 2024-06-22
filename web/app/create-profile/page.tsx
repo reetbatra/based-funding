@@ -6,15 +6,7 @@ import Footer from '@/components/layout/footer/Footer';
 import Header from '@/components/layout/header/Header';
 
 import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import {
   Select,
@@ -22,19 +14,21 @@ import {
   SelectValue,
   SelectContent,
   SelectItem,
-  SelectGroup,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { CalendarIcon } from 'lucide-react';
-import { format } from 'date-fns';
+import { CalendarIcon, Check, ChevronsUpDown } from 'lucide-react';
+import { format, set } from 'date-fns';
 import { cn } from '@/lib/utils';
+import { useState } from 'react';
 
 const formSchema = z.object({
-  firstname: z.string(),
+  firstname: z.string().min(1),
   lastname: z.string().min(1),
-  university: z.string().min(1),
+  university: z.string({
+    required_error: 'Please select a university.',
+  }),
   programme: z.string().min(1),
   educationLevel: z.enum(['Bachelor', 'Master', 'PhD']),
   budget: z.number().min(0),
@@ -53,10 +47,6 @@ const formSchema = z.object({
   caseDescription: z.string().min(1),
 });
 
-async function onSubmit(data: z.infer<typeof formSchema>) {
-  console.log(data);
-}
-
 export default function ApplyPage() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -65,6 +55,21 @@ export default function ApplyPage() {
   const handleSubmit = (values: z.infer<typeof formSchema>) => {
     console.log({ values });
   };
+
+  const [universities, setUniversities] = useState([]);
+  const fetchUniversity = (value: any) => {
+    fetch(`http://universities.hipolabs.com/search?name=${value}`)
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json.slice(0, 10));
+        setUniversities(json.slice(0, 10));
+      });
+  };
+  const handleUniChange = (value: any) => {
+    fetchUniversity(value);
+  };
+
+  console.log(universities);
 
   return (
     <>
@@ -103,21 +108,32 @@ export default function ApplyPage() {
               />
             </div>
             <FormField
-              control={form.control}
               name="university"
+              control={form.control}
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="flex flex-col">
                   <Select onValueChange={field.onChange}>
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Select a University" />
                       </SelectTrigger>
                     </FormControl>
+
+                    <SelectContent>
+                      <Input
+                        placeholder="Search a University"
+                        onChange={(e) => handleUniChange(e.target.value)}
+                      />
+                      {universities.map((university, id) => {
+                        return <SelectItem value={university.name}>{university.name}</SelectItem>;
+                      })}
+                    </SelectContent>
                   </Select>
+
                   <FormMessage />
                 </FormItem>
               )}
-            />{' '}
+            />
             <FormField
               control={form.control}
               name="programme"
@@ -163,7 +179,7 @@ export default function ApplyPage() {
                 <FormItem>
                   <FormControl>
                     <Input
-                      placeholder="Budget"
+                      placeholder="Goal"
                       type="number"
                       {...field}
                       onChange={(e) => field.onChange(parseFloat(e.target.value))}
