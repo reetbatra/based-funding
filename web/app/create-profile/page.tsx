@@ -39,7 +39,7 @@ const formSchema = z.object({
   educationLevel: z.enum(['Bachelor', 'Master', 'PhD']),
   budget: z.number().min(0),
   deadline: z.date({
-    required_error: 'A date of birth is required.',
+    required_error: 'Required.',
   }),
   location: z.enum([
     'Africa',
@@ -60,17 +60,6 @@ async function onSubmit(data: z.infer<typeof formSchema>) {
 export default function ApplyPage() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      firstname: '',
-      lastname: '',
-      university: '',
-      programme: '',
-      educationLevel: undefined,
-      budget: '',
-      deadline: '',
-      location: '',
-      caseDescription: '',
-    },
   });
 
   const handleSubmit = (values: z.infer<typeof formSchema>) => {
@@ -80,8 +69,8 @@ export default function ApplyPage() {
   return (
     <>
       <Header />
-      <main className="mx-auto flex w-full max-w-md flex-col items-start justify-center pt-24">
-        <h1 className="mb-9 text-2xl font-medium text-mainGray">Create Profile</h1>
+      <main className="mx-auto flex w-full max-w-md flex-col items-start justify-center">
+        <h1 className="mb-7 text-2xl font-medium text-mainGray">Create Profile</h1>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleSubmit)}
@@ -259,7 +248,7 @@ export default function ApplyPage() {
                 </FormItem>
               )}
             />
-            <Button type="submit" variant="blue" className="mt-5 h-10 w-1/3">
+            <Button type="submit" variant="blue" className="mt-2 h-10 w-1/3">
               Create Profile
             </Button>
           </form>
