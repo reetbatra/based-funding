@@ -6,15 +6,7 @@ import Footer from '@/components/layout/footer/Footer';
 import Header from '@/components/layout/header/Header';
 
 import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import {
   Select,
@@ -22,25 +14,23 @@ import {
   SelectValue,
   SelectContent,
   SelectItem,
-  SelectGroup,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { CalendarIcon } from 'lucide-react';
-import { format } from 'date-fns';
+import { CalendarIcon, Check, ChevronsUpDown } from 'lucide-react';
+import { format, set } from 'date-fns';
 import { cn } from '@/lib/utils';
+import { useState } from 'react';
 
 const formSchema = z.object({
-  firstname: z.string(),
+  firstname: z.string().min(1),
   lastname: z.string().min(1),
-  university: z.string().min(1),
-  programme: z.string().min(1),
+  university: z.string(),
+  programme: z.string(),
   educationLevel: z.enum(['Bachelor', 'Master', 'PhD']),
   budget: z.number().min(0),
-  deadline: z.date({
-    required_error: 'A date of birth is required.',
-  }),
+  deadline: z.date(),
   location: z.enum([
     'Africa',
     'Antarctica',
@@ -50,38 +40,36 @@ const formSchema = z.object({
     'Australia',
     'South America',
   ]),
-  caseDescription: z.string().min(1),
+  caseDescription: z.string().min(50),
 });
-
-async function onSubmit(data: z.infer<typeof formSchema>) {
-  console.log(data);
-}
 
 export default function ApplyPage() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      firstname: '',
-      lastname: '',
-      university: '',
-      programme: '',
-      educationLevel: undefined,
-      budget: '',
-      deadline: '',
-      location: '',
-      caseDescription: '',
-    },
   });
 
   const handleSubmit = (values: z.infer<typeof formSchema>) => {
     console.log({ values });
   };
 
+  const [universities, setUniversities] = useState([]);
+  const fetchUniversity = (value: any) => {
+    fetch(`http://universities.hipolabs.com/search?name=${value}`)
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json.slice(0, 10));
+        setUniversities(json.slice(0, 10));
+      });
+  };
+  const handleUniChange = (value: any) => {
+    fetchUniversity(value);
+  };
+
   return (
     <>
       <Header />
-      <main className="mx-auto flex w-full max-w-md flex-col items-start justify-center pt-24">
-        <h1 className="mb-9 text-2xl font-medium text-mainGray">Create Profile</h1>
+      <main className="mx-auto flex w-full max-w-md flex-col items-start justify-center">
+        <h1 className="mb-7 text-2xl font-medium text-mainGray">Create Profile</h1>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleSubmit)}
@@ -114,21 +102,32 @@ export default function ApplyPage() {
               />
             </div>
             <FormField
-              control={form.control}
               name="university"
+              control={form.control}
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="flex flex-col">
                   <Select onValueChange={field.onChange}>
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Select a University" />
                       </SelectTrigger>
                     </FormControl>
+
+                    <SelectContent>
+                      <Input
+                        placeholder="Search a University"
+                        onChange={(e) => handleUniChange(e.target.value)}
+                      />
+                      {universities.map((university, id) => {
+                        return <SelectItem value={university.name}>{university.name}</SelectItem>;
+                      })}
+                    </SelectContent>
                   </Select>
+
                   <FormMessage />
                 </FormItem>
               )}
-            />{' '}
+            />
             <FormField
               control={form.control}
               name="programme"
@@ -174,8 +173,9 @@ export default function ApplyPage() {
                 <FormItem>
                   <FormControl>
                     <Input
-                      placeholder="Budget"
+                      placeholder="Goal Budget (in USDC)"
                       type="number"
+                      min={1}
                       {...field}
                       onChange={(e) => field.onChange(parseFloat(e.target.value))}
                     />
@@ -230,7 +230,7 @@ export default function ApplyPage() {
                 <FormItem>
                   <Select onValueChange={field.onChange}>
                     <FormControl>
-                      <SelectTrigger>{field.value || 'Select a location'}</SelectTrigger>
+                      <SelectTrigger>{field.value || 'Select a Region'}</SelectTrigger>
                     </FormControl>
 
                     <SelectContent>
@@ -259,7 +259,7 @@ export default function ApplyPage() {
                 </FormItem>
               )}
             />
-            <Button type="submit" variant="blue" className="mt-5 h-10 w-1/3">
+            <Button type="submit" variant="blue" className="mt-2 h-10 w-1/3">
               Create Profile
             </Button>
           </form>
