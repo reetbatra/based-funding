@@ -58,7 +58,7 @@ export default function DetailsPage() {
         <div className="mt-24 w-2/3">
           <h1 className="mb-9 text-3xl font-semibold text-mainGray">Samantha's Case</h1>
           <div>
-            <div className="rounded-3xl bg-mainGreen bg-white p-9 text-mainGray">
+            <div className="rounded-3xl bg-mainGreen p-9 text-mainGray">
               <div className="mb-2">
                 <span className="font-bold">Name: </span>
                 <span className="ml-2">Samantha Jones</span>
@@ -98,7 +98,7 @@ export default function DetailsPage() {
               </div>
             </div>
             {/* <h1 className="ml-3 mt-6 text-2xl font-semibold text-mainGray">Fundings</h1> */}
-            <Table className="mb-4 mt-4">
+            <Table className="mb-4 mt-5">
               <TableHeader>
                 <TableRow>
                   <TableHead className="ml-3 mt-2 text-xl font-semibold text-mainGray">
