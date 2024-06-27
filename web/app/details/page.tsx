@@ -54,11 +54,11 @@ export default function DetailsPage() {
   return (
     <>
       <Header />
-      <main className="mx-auto flex max-w-6xl gap-16">
+      <main className="mx-auto mt-5 flex max-w-6xl gap-16">
         <div className="mt-24 w-2/3">
           <h1 className="mb-9 text-3xl font-semibold text-mainGray">Samantha's Case</h1>
           <div>
-            <div className="rounded-3xl bg-mainGreen bg-white p-9 text-mainGray">
+            <div className="rounded-3xl bg-mainGreen p-9 text-mainGray">
               <div className="mb-2">
                 <span className="font-bold">Name: </span>
                 <span className="ml-2">Samantha Jones</span>

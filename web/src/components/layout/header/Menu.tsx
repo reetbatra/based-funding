@@ -4,10 +4,7 @@ import NavbarMobile from './NavbarMobile';
 function Menu() {
   return (
     <>
-      <div className="fixed z-10 h-[72px] md:hidden">
-        <NavbarMobile />
-      </div>
-      <div className="container fixed z-10 hidden h-[72px] md:block">
+      <div className="container fixed z-10 bg-white p-4 pb-3 pt-8">
         <Navbar />
       </div>
     </>
