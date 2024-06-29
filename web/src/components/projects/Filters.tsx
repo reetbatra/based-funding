@@ -1,29 +1,83 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Filters = () => {
+interface FiltersProps {
+  setFilter: (type: string, value: string) => void;
+}
+
+const Filters: React.FC<FiltersProps> = ({ setFilter }) => {
+  const programs = [
+    'Agriculture & Natural Resources Conservation',
+    'Architecture',
+    'Area, Ethnic, and Multidisciplinary Studies',
+    'Visual & Performing',
+    'Business',
+    'Communications',
+    'Community, Family, and Personal Services',
+    'Computer Science and Mathematics',
+    'Education',
+    'Engineering',
+    'Engineering Technology and Drafting',
+    'English and Foreign Languages',
+    'Health Administration and Assisting',
+    'Health Sciences and Technologies',
+    'Philosophy, Religion, and Theology',
+    'Repair, Production and Construction',
+    'Biological and Physical',
+    'Social Sciences and Law'
+  ];
+
+  const universities = [
+    'Harvard University', 'Stanford University', 'MIT', 'University of Cambridge', 'University of Oxford'
+  ];
+
+  const regions = [
+    'Africa', 'Antarctica', 'Asia', 'Europe', 'North America', 'Australia', 'South America'
+  ];
+
+  const [showMore, setShowMore] = useState(false);
+  const visiblePrograms = showMore ? programs : programs.slice(0, 5);
+
   return (
-    <aside className="w-64 bg-gray-200 p-4">
-      <h2 className="text-xl font-bold mb-4">Filters</h2>
+    <aside className="w-64 p-4">
       <div className="mb-4">
-        <label className="block mb-2 font-semibold">Category</label>
-        <select className="w-full p-2 border rounded">
-          <option value="all">All</option>
-          <option value="education">Education</option>
-          <option value="health">Health</option>
-          {/* Add more options as needed */}
-        </select>
+        <h3 className="text-lg font-semibold mb-2">🎒 Program</h3>
+        <ul>
+          {visiblePrograms.map((program, index) => (
+            <li key={index} className="cursor-pointer mb-2" onClick={() => setFilter('program', program)}>
+              {program}
+            </li>
+          ))}
+        </ul>
+        <button
+          className="text-blue-500 underline"
+          onClick={() => setShowMore(!showMore)}
+        >
+          {showMore ? 'View Less' : 'View More'}
+        </button>
       </div>
       <div className="mb-4">
-        <label className="block mb-2 font-semibold">Location</label>
-        <input type="text" className="w-full p-2 border rounded" placeholder="Enter location" />
+        <h3 className="text-lg font-semibold mb-2">🎓  University</h3>
+        <ul>
+          {universities.map((university, index) => (
+            <li key={index} className="cursor-pointer mb-2" onClick={() => setFilter('university', university)}>
+              {university}
+            </li>
+          ))}
+        </ul>
       </div>
       <div className="mb-4">
-        <label className="block mb-2 font-semibold">Funding Amount</label>
-        <input type="number" className="w-full p-2 border rounded" placeholder="Enter amount" />
+        <h3 className="text-lg font-semibold mb-2">🌐 Region</h3>
+        <ul>
+          {regions.map((region, index) => (
+            <li key={index} className="cursor-pointer mb-2" onClick={() => setFilter('region', region)}>
+              {region}
+            </li>
+          ))}
+        </ul>
       </div>
-      <button className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Apply Filters</button>
     </aside>
   );
 };
 
 export default Filters;
+
