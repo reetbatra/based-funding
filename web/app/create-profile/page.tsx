@@ -52,7 +52,11 @@ export default function ApplyPage() {
     console.log({ values });
   };
 
-  const [universities, setUniversities] = useState([]);
+  type University = {
+    name: string;
+  };
+
+  const [universities, setUniversities] = useState<University[]>([]);
   const fetchUniversity = (value: any) => {
     fetch(`http://universities.hipolabs.com/search?name=${value}`)
       .then((response) => response.json())
