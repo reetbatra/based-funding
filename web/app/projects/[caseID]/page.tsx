@@ -12,7 +12,7 @@ import Footer from '@/components/layout/footer/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
-export default function DetailsPage() {
+export default function DetailsPage({ params }) {
   const fundings = [
     {
       id: 1,
