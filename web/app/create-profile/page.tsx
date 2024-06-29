@@ -139,45 +139,50 @@ export default function ApplyPage() {
                         <SelectValue placeholder="Select a Programme" />
                       </SelectTrigger>
                     </FormControl>
-
-                    <SelectItem value="Agriculture & Natural Resources Conservation">
-                      Agriculture & Natural Resources Conservation
-                    </SelectItem>
-                    <SelectItem value="Architecture">Architecture</SelectItem>
-                    <SelectItem value="Area, Ethnic, and Multidisciplinary Studies">
-                      Area, Ethnic, and Multidisciplinary Studies
-                    </SelectItem>
-                    <SelectItem value="Visual & Performing">Visual & Performing</SelectItem>
-                    <SelectItem value="Business">Business</SelectItem>
-                    <SelectItem value="Communications">Communications</SelectItem>
-                    <SelectItem value="Community, Family, and Personal Services">
-                      Community, Family, and Personal Services
-                    </SelectItem>
-                    <SelectItem value="Computer Science and Mathematics">
-                      Computer Science and Mathematics
-                    </SelectItem>
-                    <SelectItem value="Education">Education</SelectItem>
-                    <SelectItem value="Engineering">Engineering</SelectItem>
-                    <SelectItem value="Engineering Technology and Drafting">
-                      Engineering Technology and Drafting
-                    </SelectItem>
-                    <SelectItem value="English and Foreign Languages">
-                      English and Foreign Languages
-                    </SelectItem>
-                    <SelectItem value="Health Administration and Assisting">
-                      Health Administration and Assisting
-                    </SelectItem>
-                    <SelectItem value="Health Sciences and Technologies">
-                      Health Sciences and Technologies
-                    </SelectItem>
-                    <SelectItem value="Philosophy, Religion, and Theology">
-                      Philosophy, Religion, and Theology
-                    </SelectItem>
-                    <SelectItem value="Repair, Production and Construction">
-                      Repair, Production and Construction
-                    </SelectItem>
-                    <SelectItem value="Biological and Physical">Biological and Physical</SelectItem>
-                    <SelectItem value="Social Sciences and Law">Social Sciences and Law</SelectItem>
+                    <SelectContent>
+                      <SelectItem value="Agriculture & Natural Resources Conservation">
+                        Agriculture & Natural Resources Conservation
+                      </SelectItem>
+                      <SelectItem value="Architecture">Architecture</SelectItem>
+                      <SelectItem value="Area, Ethnic, and Multidisciplinary Studies">
+                        Area, Ethnic, and Multidisciplinary Studies
+                      </SelectItem>
+                      <SelectItem value="Visual & Performing">Visual & Performing</SelectItem>
+                      <SelectItem value="Business">Business</SelectItem>
+                      <SelectItem value="Communications">Communications</SelectItem>
+                      <SelectItem value="Community, Family, and Personal Services">
+                        Community, Family, and Personal Services
+                      </SelectItem>
+                      <SelectItem value="Computer Science and Mathematics">
+                        Computer Science and Mathematics
+                      </SelectItem>
+                      <SelectItem value="Education">Education</SelectItem>
+                      <SelectItem value="Engineering">Engineering</SelectItem>
+                      <SelectItem value="Engineering Technology and Drafting">
+                        Engineering Technology and Drafting
+                      </SelectItem>
+                      <SelectItem value="English and Foreign Languages">
+                        English and Foreign Languages
+                      </SelectItem>
+                      <SelectItem value="Health Administration and Assisting">
+                        Health Administration and Assisting
+                      </SelectItem>
+                      <SelectItem value="Health Sciences and Technologies">
+                        Health Sciences and Technologies
+                      </SelectItem>
+                      <SelectItem value="Philosophy, Religion, and Theology">
+                        Philosophy, Religion, and Theology
+                      </SelectItem>
+                      <SelectItem value="Repair, Production and Construction">
+                        Repair, Production and Construction
+                      </SelectItem>
+                      <SelectItem value="Biological and Physical">
+                        Biological and Physical
+                      </SelectItem>
+                      <SelectItem value="Social Sciences and Law">
+                        Social Sciences and Law
+                      </SelectItem>
+                    </SelectContent>
                   </Select>
                   <FormMessage />
                 </FormItem>
