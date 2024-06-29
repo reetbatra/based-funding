@@ -68,7 +68,7 @@ export default function ApplyPage() {
   return (
     <>
       <Header />
-      <main className="mx-auto flex w-full max-w-md flex-col items-start justify-center">
+      <main className="mx-auto mb-8 mt-28 flex w-full max-w-md flex-col">
         <h1 className="mb-7 text-2xl font-medium text-mainGray">Create Profile</h1>
         <Form {...form}>
           <form
