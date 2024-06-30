@@ -5,17 +5,17 @@ We want to close this gap by removing all barriers to funding a student's educat
 
 # Builders
 
-Cheri I. </br>
-Reet </br>
-Yulia </br>
-Khawla </br>
-Samar
+- Cheri I.
+- Reet 
+- Yulia 
+- Khawla 
+- Samar
 
 # Tech Stack
 
-FE: Next.js, TailwindCSS, OnchainKit </br>
-BE: PostgresSQL, Prisma ORM, Fleek </br>
-Web3: Coinbase Smart Wallet, Base Sepolia, Foundry, Solidity, OpenZeppelin, Infura </br>
+- FE: Next.js, TailwindCSS, OnchainKit </br>
+- BE: PostgresSQL, Prisma ORM, Fleek </br>
+- Web3: Coinbase Smart Wallet, Base Sepolia, Foundry, Solidity, OpenZeppelin, Infura </br>
 
 # Fleek functions
 
@@ -51,6 +51,23 @@ Our smart contract EducationFunding is deployed at `0x396F44b7bCe96ce44A7967Ac11
 This data can be used to create real-time dashboards to monitor funding progress, analyze trends in student registrations, engage with funders by tracking their contributions, and ensure compliance by maintaining a transparent and auditable record of all transactions.
 
 Contract -> \src/BaseFunding.sol
+
+# How to start this locally?
+
+```
+cd web
+```
+Entering the client, after making sure about all the env variables.
+
+```
+yarn install
+```
+
+after installing all the dependencies, simply run the project
+
+```
+yarn dev
+```
 
 # Build Onchain Apps Template
 
