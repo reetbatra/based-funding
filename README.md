@@ -1,5 +1,7 @@
 # Build Onchain Apps Template
 
+# EducationFunding contract deployed at: 0x396F44b7bCe96ce44A7967Ac11Fe3712c2B03281
+
 This project has two main folders:
 
 ```bash
