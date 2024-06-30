@@ -11,7 +11,7 @@ import Header from '@/components/layout/header/Header';
 import Footer from '@/components/layout/footer/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function DetailsPage({ params }) {
   const fundings = [
@@ -51,20 +51,71 @@ export default function DetailsPage({ params }) {
       amount: '$250.00',
     },
   ];
-  const [data, setData] = useState({});
+  interface StudentData {
+    first_name: string;
+    last_name: string;
+    university: string;
+    program: string;
+    education_level: string;
+  }
 
-  fetch(`/api/students/${params.studentID}`)
-    .then((response) => response.json())
-    .then((json) => {
-      setData(json);
-    });
+  const [data, setData] = useState<StudentData>({
+    first_name: '',
+    last_name: '',
+    university: '',
+    program: '',
+    education_level: '',
+  });
+  interface Cases {
+    goal: string;
+    description: string;
+    total_funding: string;
+    deadline: string;
+    // Add other properties if needed
+  }
+
+  const [cases, setCases] = useState<Cases>({
+    goal: null,
+    description: null,
+    total_funding: null,
+    deadline: '',
+  });
+  const [status, setStatus] = useState('Open');
+  const [date, setDate] = useState('');
+
+  const fetchData = async () => {
+    fetch(`/api/students/${params.studentID}`)
+      .then((response) => response.json())
+      .then((json) => {
+        setData(json);
+      });
+
+    fetch(`/api/cases/${params.studentID}s`)
+      .then((response) => response.json())
+      .then((json) => {
+        setCases(json);
+      });
+  };
+
+  fetchData();
+  if (new Date() > new Date(cases.deadline)) {
+    setStatus('Closed');
+  }
+
+  const specificDate = new Date(cases.deadline);
+
+  const day = specificDate.getDate();
+  const month = specificDate.toLocaleString('default', { month: 'short' });
+  const year = specificDate.getFullYear();
+
+  const formattedSpecificDate = `${month} ${day}, ${year}`;
 
   return (
     <>
       <Header />
       <main className="mx-auto mt-5 flex max-w-6xl gap-16">
         <div className="mt-24 w-2/3">
-          <h1 className="mb-9 text-3xl font-semibold text-mainGray">{data.first_name}'s' Case</h1>
+          <h1 className="mb-9 text-3xl font-semibold text-mainGray">{data.first_name}'s Case</h1>
           <div>
             <div className="rounded-3xl bg-mainGreen p-9 text-mainGray">
               <div className="mb-2">
@@ -87,24 +138,21 @@ export default function DetailsPage({ params }) {
               </div>
               <div className="mb-2">
                 <span className="font-bold">Status:</span>
-                <span className="ml-2">Open</span>
+                <span className="ml-2">{status}</span>
               </div>
               <div className="mb-2">
                 <span className="font-bold">Goal:</span>
-                <span className="ml-2">Current / Target</span>
+                <span className="ml-2">
+                  {cases.total_funding} / {cases.goal}
+                </span>
               </div>
               <div className="mb-2">
                 <span className="font-bold">Deadline:</span>
-                <span className="ml-2">Dec 1, 2020</span>
+                <span className="ml-2">{formattedSpecificDate}</span>
               </div>
               <div>
                 <span className="font-bold">Description:</span>
-                <span className="ml-2">
-                  Hi! I'm Samantha. I'm currently a sophomore at the University of California,
-                  Berkeley, pursuing a degree in Computer Science. I need funding to cover my
-                  semester fees and continue my studies, as my family is facing financial
-                  difficulties due to unforeseen circumstances.
-                </span>
+                <span className="ml-2">{cases.description}</span>
               </div>
             </div>
             {/* <h1 className="ml-3 mt-6 text-2xl font-semibold text-mainGray">Fundings</h1> */}
