@@ -221,7 +221,7 @@ export default function ApplyPage() {
                 <FormItem>
                   <FormControl>
                     <Input
-                      placeholder="Goal Budget (in USDC)"
+                      placeholder="Goal (in USDC)"
                       type="number"
                       min={1}
                       {...field}

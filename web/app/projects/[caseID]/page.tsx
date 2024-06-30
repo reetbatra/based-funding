@@ -124,8 +124,8 @@ export default function DetailsPage({ params }) {
           <Button variant="blue" className="h-12 w-1/2">
             Fund
           </Button>
-          <Input type="number" placeholder="My Offer (USDT)" className="mt-4 w-3/4" />
-          <Input placeholder="Description of proposal" className="mt-4 w-3/4" />
+          <Input type="number" placeholder="My Offer (USDC)" className="mt-4 w-3/4" />
+          {/* <Input placeholder="Description of proposal" className="mt-4 w-3/4" /> */}
           <p className="ml-3 mt-8 text-zinc-500">Case closes in:</p>
           <p className="ml-3 mt-2 text-3xl font-semibold">1d 10h 10m</p>
         </div>
