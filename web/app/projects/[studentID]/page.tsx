@@ -11,6 +11,7 @@ import Header from '@/components/layout/header/Header';
 import Footer from '@/components/layout/footer/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { useEffect, useState } from 'react';
 
 export default function DetailsPage({ params }) {
   const fundings = [
@@ -50,30 +51,39 @@ export default function DetailsPage({ params }) {
       amount: '$250.00',
     },
   ];
+  const [data, setData] = useState({});
+
+  fetch(`/api/students/${params.studentID}`)
+    .then((response) => response.json())
+    .then((json) => {
+      setData(json);
+    });
 
   return (
     <>
       <Header />
       <main className="mx-auto mt-5 flex max-w-6xl gap-16">
         <div className="mt-24 w-2/3">
-          <h1 className="mb-9 text-3xl font-semibold text-mainGray">Samantha's Case</h1>
+          <h1 className="mb-9 text-3xl font-semibold text-mainGray">{data.first_name}'s' Case</h1>
           <div>
             <div className="rounded-3xl bg-mainGreen p-9 text-mainGray">
               <div className="mb-2">
                 <span className="font-bold">Name: </span>
-                <span className="ml-2">Samantha Jones</span>
+                <span className="ml-2">
+                  {data.first_name} {data.last_name}
+                </span>
               </div>
               <div className="mb-2">
                 <span className="font-bold">University:</span>
-                <span className="ml-2">Harvard University</span>
+                <span className="ml-2">{data.university}</span>
               </div>
               <div className="mb-2">
                 <span className="font-bold">Programme:</span>
-                <span className="ml-2">Computer Science</span>
+                <span className="ml-2">{data.program}</span>
               </div>
               <div className="mb-2">
                 <span className="font-bold">Education level:</span>
-                <span className="ml-2">Bachelor</span>
+                <span className="ml-2">{data.education_level}</span>
               </div>
               <div className="mb-2">
                 <span className="font-bold">Status:</span>
