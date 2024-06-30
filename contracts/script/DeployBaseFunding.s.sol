@@ -10,7 +10,7 @@ contract DeployBaseFunding is Script {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         vm.startBroadcast(deployerPrivateKey);
 
-        IERC20 usdcToken = IERC20(0x34E8E400BE58476977EB37c18d3C005878AB6d0C); // Use the provided USDC token contract address on Sepolia testnet
+        IERC20 usdcToken = IERC20(); // Use the provided USDC token contract address on Sepolia testnet
         EducationFunding educationFunding = new EducationFunding(usdcToken);
         console.log("EducationFunding contract deployed at:", address(educationFunding));
 
