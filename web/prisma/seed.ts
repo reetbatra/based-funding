@@ -1,5 +1,5 @@
 import { create } from 'domain';
-import prisma from '../lib/prisma';
+import prisma from '@/lib/prisma';
 import { addDays } from 'date-fns';
 
 async function main() {
@@ -11,7 +11,7 @@ async function main() {
         university: 'University of Tronto',
         program: 'Physics',
         education_level: 'BSc',
-        location: 'UK',
+        region: 'America',
       },
       {
         first_name: 'Farah',
@@ -19,7 +19,7 @@ async function main() {
         university: 'University of Cairo',
         program: 'Biology',
         education_level: 'MSc',
-        location: 'Egypt',
+        region: 'MENA',
       },
     ],
   });
