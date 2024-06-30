@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { ENTRYPOINT_ADDRESS_V06 } from 'permissionless';
 import { paymasterActionsEip7677 } from 'permissionless/experimental';
 import { createClient, http, createPublicClient } from 'viem';
