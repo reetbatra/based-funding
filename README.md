@@ -3,6 +3,10 @@
 Students often times have to pause their semester if they don't have enough money to pay for their tuition fees which means delaying their graduation. on the other hand, there are people out there that want to invest in a someone's education that they personally feel aligned with. there's a disconnect.
 We want to close this gap by removing all barriers to funding a student's education and utilize the true power of crypto and decentralization by creating an open platform for students to seek funding.
 
+# Video demo
+
+[Video demo link](https://drive.google.com/file/d/17OHcmB2-SfFc0Mc--5TxYuHS3IAXkAao/view?usp=sharing)
+
 # Builders
 
 - Cheri I.
