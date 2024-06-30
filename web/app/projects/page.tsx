@@ -20,6 +20,7 @@ const FundPage: React.FC = () => {
   const cards: CardData[] = [
     { name: 'Samantha', university: 'University of Oxford', program: 'Computer Science', goalAmount: 1000, amountRaised: 500, deadline: 'Nov 12' },
     { name: 'John', university: 'Stanford University', program: 'Medicine', goalAmount: 1500, amountRaised: 750, deadline: 'Dec 5' },
+    // Add more card data as needed
   ];
 
   const setFilter = (type: string, value: string) => {
@@ -33,9 +34,9 @@ const FundPage: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto flex px-8 py-16">
+      <div className="container mx-auto flex flex-col lg:flex-row px-4 py-8 lg:px-8 lg:py-16">
         <Filters setFilter={setFilter} />
-        <main className="flex-grow ml-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <main className="flex-grow lg:ml-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {filteredCards.map((card, index) => (
             <Card
               key={index}
@@ -55,5 +56,3 @@ const FundPage: React.FC = () => {
 };
 
 export default FundPage;
-
-

@@ -13,8 +13,8 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ name, university, program, goalAmount, amountRaised, deadline }) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg mb-6 flex flex-col justify-between" style={{ width: '350px', height: '500px', border: '2px solid #e2e8f0' }}>
-      <div className="flex justify-center">
-        <CardImage />
+      <div className="flex justify-center mt-4">
+        {/* <CardImage /> */}
       </div>
       <div>
         <h3 className="text-xl font-bold mb-4 text-center">{`${name}, ${university}, ${program}`}</h3>
