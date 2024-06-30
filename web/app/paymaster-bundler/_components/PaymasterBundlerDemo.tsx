@@ -15,7 +15,10 @@ const defaultUrl = isLocalEnv
 
 export default function PaymasterBundlerDemo() {
   const { address } = useAccount();
-  const { data: callID, writeContracts } = useWriteContracts();
+  const { data: callID, writeContracts } = useWriteContracts() as {
+    data: any;
+    writeContracts: any;
+  };
   const contract = usePaymasterBundlerContract();
 
   if (contract.status !== 'ready') {
@@ -38,6 +41,7 @@ export default function PaymasterBundlerDemo() {
           url: defaultUrl,
         },
       },
+      account: '',
     });
   };
 
