@@ -9,8 +9,8 @@ export default function HomePage() {
     <>
       <Header />
       <main className="container mx-auto flex flex-col items-center space-y-16 px-8 py-24">
-        <h1 className="text-mainGray text-center text-5xl font-bold leading-relaxed">
-          Transforming Education Funding with Decentralized Blockchain Solutions
+        <h1 className="text-center text-5xl font-bold leading-relaxed text-mainGray">
+          we believe investing in education is based. donate in crypto wherever you are.
         </h1>
         <p className="text-center text-4xl">
           Join as a <span className="text-mainBlue">Student</span> or Investor
