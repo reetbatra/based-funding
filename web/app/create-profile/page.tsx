@@ -49,7 +49,59 @@ export default function ApplyPage() {
   });
 
   const handleSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log({ values });
+    const obj = values;
+    fetchStudent(obj);
+  };
+
+  let studentId: any;
+  const fetchStudent = async (obj: any) => {
+    const data = {
+      first_name: obj.firstname,
+      last_name: obj.lastname,
+      university: obj.university,
+      program: obj.programme,
+      education_level: obj.educationLevel,
+      region: obj.location,
+    };
+
+    try {
+      const res = await fetch('/api/students/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+      fetchCase(obj, result.id);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const fetchCase = async (obj: any, id: any) => {
+    const data = {
+      studentId: id,
+      goal: obj.budget,
+      deadline: obj.deadline.toISOString(),
+      description: obj.caseDescription,
+      funding_wallet: '0x5B184DA2543207104Aa0C167f27B5E28a2BDa34f',
+    };
+
+    try {
+      const res = await fetch('/api/cases/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   type University = {
@@ -61,7 +113,7 @@ export default function ApplyPage() {
     fetch(`http://universities.hipolabs.com/search?name=${value}`)
       .then((response) => response.json())
       .then((json) => {
-        console.log(json.slice(0, 10));
+        // console.log(json.slice(0, 10));
         setUniversities(json.slice(0, 10));
       });
   };
