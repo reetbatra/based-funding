@@ -3,7 +3,9 @@ Our smart contract EducationFunding is deployed at `0x396F44b7bCe96ce44A7967Ac11
 
 This data can be used to create real-time dashboards to monitor funding progress, analyze trends in student registrations, engage with funders by tracking their contributions, and ensure compliance by maintaining a transparent and auditable record of all transactions.
 
-![Smart Contract Image](file:///Users/your_username/Desktop/smart-contract.jpeg)
+Contract -> \src/BaseFunding.sol
+
+
 
 # Build Onchain Apps Template
 
