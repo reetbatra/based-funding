@@ -1,5 +1,10 @@
 # Build Onchain API Routes
 
+## Fleek function:
+
+`recommend-fn:`
+https://screeching-rocket-melodic.functions.on-fleek.app
+
 ## Supported Chains /api/chains/supported
 
 **Method**: GET
