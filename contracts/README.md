@@ -148,6 +148,33 @@ forge script script/BuyMeACoffee.s.sol:BuyMeACoffeeScript --broadcast --verify -
 
 ![Deployment](./assets/deployment.png)
 
+forge script script/DeployBaseFunding.s.sol:DeployBaseFunding --broadcast --rpc-url $RPC_URL --verify --etherscan-api-key $BLOCK_EXPLORER_API_KEY
+
+[⠒] Compiling...
+No files changed, compilation skipped
+Script ran successfully.
+
+== Logs ==
+  EducationFunding contract deployed at: 0x396F44b7bCe96ce44A7967Ac11Fe3712c2B03281
+
+## Setting up 1 EVM.
+
+==========================
+
+Chain 11155111
+
+Estimated gas price: 52.658906228 gwei
+
+Estimated total gas used for script: 1555330
+
+Estimated amount required: 0.08190197662359524 ETH
+
+==========================
+
+Transactions saved to: /Users/s/girls-hacks /based-funding/contracts/broadcast/DeployBaseFunding.s.sol/11155111/run-latest.json
+
+Sensitive values saved to: /Users/s/girls-hacks /based-funding/contracts/cache/DeployBaseFunding.s.sol/11155111/run-latest.json
+
 ![Verified](./assets/verified.png)
 
 Forge runs your solidity script. In that script it tries to broadcast the transaction. It writes it back into the broadcast folder in a `run-latest.json` file.
