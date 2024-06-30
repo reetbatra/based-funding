@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// psql -h ep-super-grass-a19sz2uy-pooler.ap-southeast-1.aws.neon.tech -p 5432 -U default -d verceldb
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Student {
+  id Int @id @default(autoincrement())
+  case Case? 
+  first_name String
+  last_name String
+  university String
+  program String
+  education_level String
+  region String @default(value: "N/A")
+}
+
+model Case {
+  id Int @id @default(autoincrement())
+  studentId Int @unique
+  student Student @relation(fields: [studentId], references: [id]) // case <1:1> student
+  goal Float
+  deadline DateTime @db.Date
+  description String 
+  funding_wallet String
+  payment_token String? @default(value: "USDC")
+  donations Donation[]
+  total_funding Float @default(value: 0)
+}
+
+model Donation {
+  id Int @id @default(autoincrement())
+  amount Float
+  caseId Int
+  case Case @relation(fields: [caseId], references: [id])   
+  wallet String
+  created_at DateTime @db.Date
+}
