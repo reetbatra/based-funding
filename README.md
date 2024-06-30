@@ -5,7 +5,7 @@ We want to close this gap by removing all barriers to funding a student's educat
 
 # 🎥 Video demo
 
-[Video demo link](https://drive.google.com/file/d/17OHcmB2-SfFc0Mc--5TxYuHS3IAXkAao/view?usp=sharing)
+[Video demo link](https://www.youtube.com/watch?v=7OE2UN8eA60)
 
 # 🛠️ Builders
 
