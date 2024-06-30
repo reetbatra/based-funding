@@ -22,6 +22,7 @@ import { CalendarIcon, Check, ChevronsUpDown } from 'lucide-react';
 import { format, set } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const formSchema = z.object({
   firstname: z.string().min(1),
@@ -44,6 +45,8 @@ const formSchema = z.object({
 });
 
 export default function ApplyPage() {
+  const router = useRouter();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
@@ -53,7 +56,6 @@ export default function ApplyPage() {
     fetchStudent(obj);
   };
 
-  let studentId: any;
   const fetchStudent = async (obj: any) => {
     const data = {
       first_name: obj.firstname,
@@ -101,6 +103,8 @@ export default function ApplyPage() {
       const result = await res.json();
     } catch (error) {
       console.error('Error:', error);
+    } finally {
+      router.push(`/projects/${id}`);
     }
   };
 
