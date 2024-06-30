@@ -6,6 +6,9 @@ libs = ["lib"]
 fs_permissions = [{ access = "read", path = "./" }]
 solc = "0.8.25"
 evm_version = 'cancun'
+viaIR = true
+optimizer = true
+optimizer_runs = 200
 
 [rpc_endpoints]
 base = "https://mainnet.base.org"

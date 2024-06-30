@@ -54,7 +54,7 @@ contract BuyMeACoffeeTest is Test {
         }
     }
 
-    function generateLongString(uint256 len) public returns (string memory) {
+    function generateLongString(uint256 len) public pure returns (string memory) {
         string memory baseString = "a";
         string memory longString = "";
         for (uint256 i = 0; i < len; i++) {
@@ -72,7 +72,7 @@ contract BuyMeACoffeeTest is Test {
         buyMeACoffee.buyCoffee{value: 0.0001 ether}(numCoffees, generateLongString(1024));
     }
 
-    function testEmptyMemoNoError() public {
+    function testEmptyMemoNoError() public view {
         Memo[] memory memos = buyMeACoffee.getMemos(15, 0);
         assertEq(memos.length, 0);
     }
@@ -81,7 +81,8 @@ contract BuyMeACoffeeTest is Test {
         buyMeACoffee.buyCoffee{value: 0.0001 ether}(numCoffees, message);
 
         vm.expectRevert();
-        Memo[] memory memos = buyMeACoffee.getMemos(15, 10);
+        // Memo[] memory memos = buyMeACoffee.getMemos(15, 10); // Commenting out the unused variable
+        buyMeACoffee.getMemos(15, 10);
     }
 
     function testSetPriceForCoffee() public {

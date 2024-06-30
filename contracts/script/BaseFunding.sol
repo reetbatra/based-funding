@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract EducationFunding is ReentrancyGuard {
@@ -131,12 +131,24 @@ contract EducationFunding is ReentrancyGuard {
     }
 
     // Function to get the details of a student
-    function getStudentDetails(uint256 studentId) public view autoTransferFunds(studentId) returns (
+    function getStudentBasicDetails(uint256 studentId) public view returns (
         string memory firstName,
         string memory lastName,
         string memory university,
         string memory programme,
-        string memory educationLevel,
+        string memory educationLevel
+    ) {
+        Student storage student = students[studentId];
+        return (
+            student.firstName,
+            student.lastName,
+            student.university,
+            student.programme,
+            student.educationLevel
+        );
+    }
+
+    function getStudentFundingDetails(uint256 studentId) public view returns (
         uint256 goalBudget,
         uint256 deadline,
         string memory region,
@@ -148,11 +160,6 @@ contract EducationFunding is ReentrancyGuard {
     ) {
         Student storage student = students[studentId];
         return (
-            student.firstName,
-            student.lastName,
-            student.university,
-            student.programme,
-            student.educationLevel,
             student.goalBudget,
             student.deadline,
             student.region,

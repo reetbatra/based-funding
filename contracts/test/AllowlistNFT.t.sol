@@ -27,7 +27,7 @@ contract AllowlistNFTTest is Test {
     }
 
     // --- Tests ---
-    function test_setup() public {
+    function test_setup() public view {
         assertEq(nft.allowlistRoot(), allowlistRoot);
         assertEq(nft.live(), true);
         assertEq(nft.allowlistOpen(), 1);
