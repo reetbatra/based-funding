@@ -3,11 +3,11 @@
 Students often times have to pause their semester if they don't have enough money to pay for their tuition fees which means delaying their graduation. on the other hand, there are people out there that want to invest in a someone's education that they personally feel aligned with. there's a disconnect.
 We want to close this gap by removing all barriers to funding a student's education and utilize the true power of crypto and decentralization by creating an open platform for students to seek funding.
 
-# Video demo
+# 🎥 Video demo
 
 [Video demo link](https://drive.google.com/file/d/17OHcmB2-SfFc0Mc--5TxYuHS3IAXkAao/view?usp=sharing)
 
-# Builders
+# 🛠️ Builders
 
 - Cheri I.
 - Reet 
@@ -15,13 +15,13 @@ We want to close this gap by removing all barriers to funding a student's educat
 - Khawla 
 - Samar
 
-# Tech Stack
+# 🚀 Tech Stack
 
 - FE: Next.js, TailwindCSS, OnchainKit </br>
 - BE: PostgresSQL, Prisma ORM, Fleek </br>
 - Web3: Coinbase Smart Wallet, Base Sepolia, Foundry, Solidity, OpenZeppelin, Infura </br>
 
-# Fleek functions
+# 🌐 Fleek functions
 
 You can find the fleek function `recommend-fn.js` implementation in `app/api/cases/recommend-fn.js`. The deployed link is `https://screeching-rocket-melodic.functions.on-fleek.app`.
 
@@ -48,7 +48,7 @@ The way that it works is that we read the user's balance and trigger an API whic
 
 Source: https://fleek.xyz/docs/cli/functions/
 
-# Smart Contract
+# 🧠 Smart Contract
 
 Our smart contract EducationFunding is deployed at `0x396F44b7bCe96ce44A7967Ac11Fe3712c2B03281` on Base Sepolia Testnet. It captures and emits data related to student registrations, funding contributions, and fund disbursements. It records detailed student information such as name, university, programme, educational level, funding goal, deadline, region, and case description when students register. It logs contributions from funders, including the student ID, funder address, and the amount of USDC contributed. Additionally, it locks funds and releases it to students’ wallets after the deadline, specifying the student ID and the withdrawn amount.
 
@@ -56,7 +56,7 @@ This data can be used to create real-time dashboards to monitor funding progress
 
 Contract -> \src/BaseFunding.sol
 
-# How to start this locally?
+# 🚀 How to start this locally?
 
 ```
 cd web
