@@ -1,4 +1,5 @@
 @openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
+@openzeppelin/=lib/openzeppelin-contracts/
 @solady/=lib/solady/
 @ERC721A/=lib/ERC721A/
 @murky/=lib/murky/

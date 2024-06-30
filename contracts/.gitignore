@@ -16,3 +16,4 @@ docs/
 # Code Coverage
 lcov.info
 report/
+.DS_Store
